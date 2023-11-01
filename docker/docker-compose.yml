@@ -1,0 +1,37 @@
+version: '3'
+services:
+  library_db2:
+    image: postgres:14.5
+    container_name: library_db2
+    environment:
+      POSTGRES_DB: STARODUBTSEV_215
+      POSTGRES_USER: STARODUBTSEV_215
+      POSTGRES_PASSWORD: STARODUBTSEV_215
+    volumes:
+      - ./docker/db/scripts/library:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+
+  station_db2:
+    image: postgres:14.5
+    container_name: station_db2
+    environment:
+      POSTGRES_DB: STARODUBTSEV_215
+      POSTGRES_USER: STARODUBTSEV_215
+      POSTGRES_PASSWORD: STARODUBTSEV_215
+    volumes:
+      - ./docker/db/scripts/station:/docker-entrypoint-initdb.d
+    ports:
+      - "5433:5432"
+
+  ambulance_db2:
+    image: postgres:14.5
+    container_name: ambulance_db2
+    environment:
+      POSTGRES_DB: STARODUBTSEV_215
+      POSTGRES_USER: STARODUBTSEV_215
+      POSTGRES_PASSWORD: STARODUBTSEV_215
+    volumes:
+      - ./docker/db/scripts/ambulance:/docker-entrypoint-initdb.d
+    ports:
+      - "5434:5432"
